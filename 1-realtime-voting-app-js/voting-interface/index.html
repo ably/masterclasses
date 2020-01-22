@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Voting interface</title>
+        <!--Bootstrap library-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <!--Ably library-->
+        <script lang="text/javascript" src="https://cdn.ably.io/lib/ably.min-1.js"></script>
+    </head>
+    <body>
+        <div style="text-align: center; padding: 6%;">
+            <div class="card text-white bg-dark mb-3" style="width: 60%; display: inline-block;">
+              <div class="card-header">VOTING INTERFACE</div>
+              <div class="card-body">
+                <h5 class="card-title">If age is only a state of mind</h5>
+                <p class="card-text">Which category best describes YOUR state of mind right now?</p>
+                <button id="cc-button" type="button" class="btn btn-light" style="margin:2px; width: 90%;" onclick="castVote('1')">1. Cheeky Child</button>
+                <button id="tt-button" type="button" class="btn btn-light" style="margin:2px; width: 90%;" onclick="castVote('2')">2. Tormented Teenager</button>
+                <button id="mm-button" type="button" class="btn btn-light" style="margin:2px; width: 90%;" onclick="castVote('3')">3. Mad Midlifer</button>
+                <button id="gg-button" type="button" class="btn btn-light" style="margin:2px; width: 90%;" onclick="castVote('4')">4. Groovy Grandparent</button>
+              </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        // Init Ably library
+        var realtime = new Ably.Realtime({ key: '<YOUR-ABLY-API-KEY>' });
+        // Attach to a channel
+        var myVotingChannel = realtime.channels.get('voting-channel')
+        // Publish data on the channel
+        var castVote = function(choice){
+            myVotingChannel.publish('vote', choice, (err)=>{
+                console.log(err);
+            });
+        }
+    </script>
+</html>
