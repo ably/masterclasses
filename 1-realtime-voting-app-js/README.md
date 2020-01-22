@@ -10,8 +10,8 @@ Feel free to reach out to Srushtika via [devrel@ably.io](mailto:devrel@ably.io) 
 
 ## Explanation of the code
 
-The concepts and explanations covered in the masterclass are also available as a [blog post](tbd)
+The concepts and explanations covered in the masterclass are also available as a [blog post](https://www.ably.io/blog/buiding-a-realtime-voting-app-in-less-than-an-hour/)
 
 ## Masterclass recording
 
-This masterclass episode was recorded and is available to watch now on our [YouTube channel](tbd)
+This masterclass episode was recorded and is available to watch now on our [YouTube channel](https://youtu.be/uGzF-fcXBj8)
